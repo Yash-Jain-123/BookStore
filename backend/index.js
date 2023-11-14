@@ -9,14 +9,16 @@ const app = express();
 
 //middleware for parsing request body
 app.use(express.json());
-
-app.use(
-    cors({
-        origin: 'http://localhost:3000',
-        methods: ['GET','POST','PUT','DELETE'],
-        allowHeaders: ['Content-Type'],
-    })
-);
+//allow all origins with default o cors
+app.use(cors());
+//allow custom origins
+// app.use(
+//     cors({
+//         origin: 'http://localhost:3000',
+//         methods: ['GET','POST','PUT','DELETE'],
+//         allowHeaders: ['Content-Type'],
+//     })
+// );
 
 app.get('/',(request,response) => {
     console.log(request);
